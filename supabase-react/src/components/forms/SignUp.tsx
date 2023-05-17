@@ -17,7 +17,7 @@ const SignUp = () => {
     }
   };
   return (
-    <div>
+    <>
       <h3>Sign In with email and password</h3>
       <form onSubmit={handleSubmit}>
         <input
@@ -33,9 +33,9 @@ const SignUp = () => {
           onChange={handleChange}
           autoComplete="on"
         />
-        <button style={{ cursor: "pointer" }}>Send</button>
+        <button>Send</button>
       </form>
-    </div>
+    </>
   );
 };
 

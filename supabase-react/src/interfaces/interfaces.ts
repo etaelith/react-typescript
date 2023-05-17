@@ -15,9 +15,9 @@ export interface AuthUser {
 }
 export interface AuthContextType extends AuthUser {
   signIn: (date: LoginDate) => void;
-  signUp: (date: LoginDate) => void;
   signOut: () => void;
   signMagicClick: (date: Login) => void;
+  signUpGoogle: () => void;
 }
 export interface TabData extends BillData {
   created_at: string;
@@ -38,4 +38,7 @@ export type UserContextProps = {
 };
 export interface props {
   children: JSX.Element | JSX.Element[];
+}
+export interface AuthContainerProps {
+  children: React.ReactNode;
 }

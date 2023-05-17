@@ -1,24 +1,24 @@
 import { useContext } from "react";
 import { useForm } from "../../hooks/useForm";
+import { LoginDate } from "../../interfaces/interfaces";
 import { AuthContext } from "../../context/AuthContext";
-import { Login } from "../../interfaces/interfaces";
-
-const SignUpOTP = () => {
-  const { handleChange, formData } = useForm<Login>({
+const SignIn = () => {
+  const { handleChange, formData } = useForm<LoginDate>({
     email: "",
+    password: "",
   });
-  const { signMagicClick } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      signMagicClick(formData);
+      signIn(formData);
     } catch (error) {
       console.error(error, 2);
     }
   };
   return (
     <>
-      <h3>Sign In with OTP</h3>
+      <h3>Log In with email and password</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -26,11 +26,17 @@ const SignUpOTP = () => {
           placeholder="test@test.com"
           onChange={handleChange}
         />
-
-        <button style={{ cursor: "pointer" }}>Send</button>
+        <input
+          type="password"
+          name="password"
+          placeholder="123@%$123"
+          onChange={handleChange}
+          autoComplete="on"
+        />
+        <button>Send</button>
       </form>
     </>
   );
 };
 
-export default SignUpOTP;
+export default SignIn;

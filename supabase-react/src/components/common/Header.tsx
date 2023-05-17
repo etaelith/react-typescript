@@ -1,4 +1,4 @@
-import DarkMode from "./common/DarkMode";
+import DarkMode from "./DarkMode";
 import { Link, useLocation } from "react-router-dom";
 const Header: React.FC = () => {
   const location = useLocation();

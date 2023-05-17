@@ -1,24 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { useForm } from "../hooks/useForm";
-import { LoginDate } from "../interfaces/interfaces";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 
+import AuthContainer from "../container/AuthContainer";
+import SignIn from "../components/forms/SignIn";
 const Login = () => {
-  const { handleChange, formData } = useForm<LoginDate>({
-    email: "",
-    password: "",
-  });
-  const { signIn } = useContext(AuthContext);
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await signIn(formData);
-    } catch (error) {
-      console.error(error, 2);
-    }
-  };
-
   return (
     <div
       style={{
@@ -35,26 +19,11 @@ const Login = () => {
       >
         SignUp
       </NavLink>
-      <br />
       or
       <br />
-      LogIn
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="test@test.com"
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="123@%$123"
-          onChange={handleChange}
-          autoComplete="on"
-        />
-        <button style={{ cursor: "pointer" }}>Send</button>
-      </form>
+      <AuthContainer>
+        <SignIn />
+      </AuthContainer>
     </div>
   );
 };

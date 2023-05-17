@@ -34,11 +34,8 @@
 @media (max-width: 480px) {
   .dates {
     grid-template-rows: auto auto;
-    /* Dividir en dos filas */
     grid-template-columns: 1fr 1fr;
-    /* Dos columnas en vez de cuatro */
     width: 100%;
-    /* Ocupar todo el ancho del contenedor */
   }
 
   span {

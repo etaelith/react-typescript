@@ -75,6 +75,7 @@ const UserProvider = ({ children }: props) => {
   };
   useEffect(() => {
     getTabs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   return (
     <UserContext.Provider

@@ -1,12 +1,15 @@
 import SignUp from "../components/forms/SignUp";
+import SignUpGoogle from "../components/forms/SignUpGoogle";
 import SignUpOTP from "../components/forms/SignUpOtp";
+import AuthContainer from "../container/AuthContainer";
 
 const SignUpForms = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1em" }}>
+    <AuthContainer>
       <SignUp />
       <SignUpOTP />
-    </div>
+      <SignUpGoogle />
+    </AuthContainer>
   );
 };
 

@@ -1,0 +1,31 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  max-width: 480px;
+  width: auto;
+  border: 1px solid green;
+  padding: 1em;
+  border-radius: 25px;
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: .5em;
+
+}
+
+.inputCheck {
+  width: 100%;
+  padding: .5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form button {
+  width: 100%;
+}
+

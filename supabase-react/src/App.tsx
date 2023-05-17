@@ -8,22 +8,22 @@ import { useEffect } from "react";
 import { client } from "./supabase/client";
 
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+import SignUpForms from "./pages/SignUpForms";
 import UserProvider from "./context/UserProvider";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  const location = useLocation()
+  const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
     client.auth.onAuthStateChange((_event, session) => {
-      if (!session ) {
-        if(location.pathname === '/')
-        navigate("/user/login");
+      if (!session) {
+        if (location.pathname === "/") navigate("/user/login");
       } else {
         navigate("/");
       }
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigate]);
   return (
     <>
@@ -33,12 +33,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="user/">
             <Route path="login" element={<Login />} />
-            <Route path="signup" element={<SignUp />} />
+            <Route path="signup" element={<SignUpForms />} />
           </Route>
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        <Toaster />
       </UserProvider>
-
     </>
   );
 }

@@ -1,8 +1,7 @@
 import { useContext } from "react";
-import { useForm } from "../hooks/useForm";
-import { LoginDate } from "../interfaces/interfaces";
-import { Toaster } from "react-hot-toast";
-import { AuthContext } from "../context/AuthContext";
+import { useForm } from "../../hooks/useForm";
+import { LoginDate } from "../../interfaces/interfaces";
+import { AuthContext } from "../../context/AuthContext";
 const SignUp = () => {
   const { handleChange, formData } = useForm<LoginDate>({
     email: "",
@@ -18,7 +17,8 @@ const SignUp = () => {
     }
   };
   return (
-    <>
+    <div>
+      <h3>Sign In with email and password</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -31,11 +31,11 @@ const SignUp = () => {
           name="password"
           placeholder="123@%$123"
           onChange={handleChange}
+          autoComplete="on"
         />
         <button style={{ cursor: "pointer" }}>Send</button>
       </form>
-      <Toaster position="bottom-right" reverseOrder={false} />
-    </>
+    </div>
   );
 };
 

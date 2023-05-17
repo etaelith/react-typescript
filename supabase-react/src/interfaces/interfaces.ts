@@ -1,11 +1,13 @@
 import { Session, User } from "@supabase/supabase-js";
-export interface LoginDate {
+export interface Login {
   email: string;
+}
+export interface LoginDate extends Login {
   password: string;
 }
 export interface BillData {
-  name: string;
-  amount: number;
+  name: string | null;
+  amount: number | null;
 }
 export interface AuthUser {
   user: User | null;
@@ -15,6 +17,7 @@ export interface AuthContextType extends AuthUser {
   signIn: (date: LoginDate) => void;
   signUp: (date: LoginDate) => void;
   signOut: () => void;
+  signMagicClick: (date: Login) => void;
 }
 export interface TabData extends BillData {
   created_at: string;
@@ -30,6 +33,8 @@ export type UserContextProps = {
   todo: UserContextType;
   createData: (todo: BillData) => void;
   loading: boolean;
+  deleteData: (todo: number) => void;
+  changeState: (id: number, paid_up: boolean) => void;
 };
 export interface props {
   children: JSX.Element | JSX.Element[];

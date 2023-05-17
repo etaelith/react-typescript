@@ -21,5 +21,8 @@ export const useForm = <T extends Partial<T>>(initial: T) => {
       [name]: updatedValue,
     });
   };
-  return { formData, handleChange, ...formData };
+  const resetForm = () => {
+    setFormData(initial);
+  };
+  return { formData, handleChange, resetForm, ...formData };
 };

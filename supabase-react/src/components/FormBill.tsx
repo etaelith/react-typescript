@@ -6,8 +6,8 @@ import { BillData } from "../interfaces/interfaces";
 
 const FormBill = () => {
   const { formData, handleChange } = useForm<BillData>({
-    name:"string",
-    amount: 25
+    name: null,
+    amount: null,
   });
   const { createData } = useContext(UserContext);
   const handleSubmit = async (event: React.FormEvent) => {
@@ -23,12 +23,7 @@ const FormBill = () => {
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.input}>
         <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
+        <input type="text" name="name" onChange={handleChange} />
       </div>
       <div className={styles.input}>
         <label>Amount $:</label>
@@ -36,7 +31,6 @@ const FormBill = () => {
           type="number"
           name="amount"
           step="0.01"
-          value={formData.amount}
           onChange={handleChange}
         />
       </div>

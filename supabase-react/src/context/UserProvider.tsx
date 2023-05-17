@@ -8,14 +8,14 @@ import {
 import { UserContext } from "./UserContext";
 import { client } from "../supabase/client";
 import { AuthContext } from "./AuthContext";
-
+import useToast from "../hooks/useToast";
 const INITIAL_STATE: UserContextType = {
   name: "etaelith",
   tabs: null,
 };
 const UserProvider = ({ children }: props) => {
   const { user } = useContext(AuthContext);
-
+  const notify = useToast();
   const [todo, setTodo] = useState<UserContextType>(INITIAL_STATE);
   const [loading, setLoading] = useState(false);
   const getTabs = async () => {
@@ -32,6 +32,7 @@ const UserProvider = ({ children }: props) => {
         name: user?.email || "Reload the interface",
         tabs: data as TabData[],
       });
+      notify("Tables updated", "success");
     }
     setLoading(true);
   };
@@ -44,20 +45,41 @@ const UserProvider = ({ children }: props) => {
           amount: formData.amount,
         });
         if (error) {
-          throw error.message;
+          notify(`${error.message}`, "error");
+          throw console.log(error.message);
         }
+        notify("Saved item", "success");
+
         getTabs();
       } catch (error) {
         console.log(error);
       }
     }
   };
-
+  const deleteData = async (id: number) => {
+    const { error } = await client.from("bill").delete().eq("id", id);
+    if (error) {
+      notify(`${error.message}`, "error");
+    }
+    notify(`Item id: ${id} deleted success`, "success");
+    getTabs();
+  };
+  const changeState = async (id: number, updateField: boolean) => {
+    const { error } = await client
+      .from("bill")
+      .update({ paid_up: !updateField })
+      .eq("id", id);
+    if (error) throw notify(`${error.message}`, "error");
+    notify(`Item id: ${id} updated success`, "success");
+    getTabs();
+  };
   useEffect(() => {
     getTabs();
   }, [user]);
   return (
-    <UserContext.Provider value={{ todo, createData, loading }}>
+    <UserContext.Provider
+      value={{ todo, createData, loading, deleteData, changeState }}
+    >
       {children}
     </UserContext.Provider>
   );

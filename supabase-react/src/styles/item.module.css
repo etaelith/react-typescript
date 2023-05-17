@@ -1,6 +1,47 @@
-.li{
+.li {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 70%;
+  align-items: center;
+}
+
+
+
+.divimg {
+  display: flex;
+}
+
+.img {
+  width: 25px;
+  height: auto;
+  cursor: pointer;
+  border: 1px solid red;
+  border-radius: 100%;
+  margin: 1.5em;
+}
+
+.img:hover {
+  background-color: red;
+}
+
+@media (max-width: 480px) {
+  .dates {
+    grid-template-rows: auto auto;
+    /* Dividir en dos filas */
+    grid-template-columns: 1fr 1fr;
+    /* Dos columnas en vez de cuatro */
+    width: 100%;
+    /* Ocupar todo el ancho del contenedor */
+  }
+
+  span {
+    font-size: .75em;
+  }
 }

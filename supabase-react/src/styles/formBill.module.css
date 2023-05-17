@@ -15,7 +15,11 @@
   justify-content: space-between;
   width: 100%;
   padding: .5em;
+}
 
+.input input {
+  text-align: right;
+  padding-right: 1em;
 }
 
 .inputCheck {
@@ -28,4 +32,3 @@
 .form button {
   width: 100%;
 }
-

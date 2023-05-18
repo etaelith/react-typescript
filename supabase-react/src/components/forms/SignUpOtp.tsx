@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { useForm } from "../../hooks/useForm";
-import { AuthContext } from "../../context/AuthContext";
-import { Login } from "../../interfaces/interfaces";
+import { useForm } from "@/hooks/useForm";
+import { AuthContext } from "@/context/AuthContext";
+import { Login } from "@/interfaces/interfaces";
 
 const SignUpOTP = () => {
   const { handleChange, formData } = useForm<Login>({

@@ -1,7 +1,7 @@
-import styles from "../styles/home.module.css";
-import UserContainer from "../container/UserContainer";
+import styles from "@/styles/home.module.css";
+import UserContainer from "@/container/UserContainer";
 import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "@/context/AuthContext";
 const Home = () => {
   const { signOut } = useContext(AuthContext);
   return (

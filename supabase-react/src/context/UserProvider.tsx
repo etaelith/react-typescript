@@ -4,20 +4,31 @@ import {
   TabData,
   UserContextType,
   props,
-} from "../interfaces/interfaces";
+} from "@/interfaces/interfaces";
 import { UserContext } from "./UserContext";
-import { client } from "../supabase/client";
+import { client } from "@/supabase/client";
 import { AuthContext } from "./AuthContext";
-import useToast from "../hooks/useToast";
+import useToast from "@/hooks/useToast";
 const INITIAL_STATE: UserContextType = {
   name: "etaelith",
   tabs: null,
+  total: 100,
+  pay_out: 0,
 };
 const UserProvider = ({ children }: props) => {
   const { user } = useContext(AuthContext);
   const notify = useToast();
   const [todo, setTodo] = useState<UserContextType>(INITIAL_STATE);
   const [loading, setLoading] = useState(false);
+  const getAmount = async () => {
+    const { error, data } = await client
+      .from("user_money")
+      .select("*")
+      .eq("user_id", user?.id);
+    if (error) throw error;
+    return data;
+  };
+
   const getTabs = async () => {
     setLoading(false);
     if (user) {
@@ -27,10 +38,13 @@ const UserProvider = ({ children }: props) => {
         .eq("user_id", user?.id);
 
       if (error) throw error;
-
+      const result = await getAmount();
+      const firstItem = result[0];
       setTodo({
         name: user?.email || "Reload the interface",
         tabs: data as TabData[],
+        total: firstItem.total as number,
+        pay_out: firstItem.pay_out as number,
       });
       notify("Tables updated", "success");
     }

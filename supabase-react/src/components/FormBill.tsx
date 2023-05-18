@@ -1,8 +1,8 @@
-import styles from "../styles/formBill.module.css";
-import { useForm } from "../hooks/useForm";
+import styles from "@/styles/formBill.module.css";
+import { useForm } from "@/hooks/useForm";
 import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
-import { BillData } from "../interfaces/interfaces";
+import { UserContext } from "@/context/UserContext";
+import { BillData } from "@/interfaces/interfaces";
 
 const FormBill = () => {
   const { formData, handleChange } = useForm<BillData>({

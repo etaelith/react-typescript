@@ -29,6 +29,8 @@ export interface TabData extends BillData {
 export interface UserContextType {
   name: string;
   tabs: TabData[] | null;
+  total: number;
+  pay_out: number;
 }
 export type UserContextProps = {
   todo: UserContextType;

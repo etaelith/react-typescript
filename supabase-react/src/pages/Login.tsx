@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
-import AuthContainer from "../container/AuthContainer";
-import SignIn from "../components/forms/SignIn";
+import AuthContainer from "@/container/AuthContainer";
+import SignIn from "@/components/forms/SignIn";
 const Login = () => {
   return (
     <div

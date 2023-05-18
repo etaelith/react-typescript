@@ -1,9 +1,9 @@
-import { TabData } from "../../interfaces/interfaces";
-import styles from "../../styles/item.module.css";
-import deleteIcon from "../../assets/delete.svg";
-import rotateIcon from "../../assets/rotate.svg";
+import { TabData } from "@/interfaces/interfaces.ts";
+import styles from "@/styles/item.module.css";
+import deleteIcon from "@/assets/delete.svg";
+import rotateIcon from "@/assets/rotate.svg";
 import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "@/context/UserContext.tsx";
 interface ItemsProps {
   item: TabData;
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../styles/signupContainer.module.css";
-import { AuthContainerProps } from "../interfaces/interfaces";
+import styles from "@/styles/signupContainer.module.css";
+import { AuthContainerProps } from "@/interfaces/interfaces";
 const AuthContainer: React.FC<AuthContainerProps> = ({ children }) => {
   const childrenArray = React.Children.toArray(children);
   return (

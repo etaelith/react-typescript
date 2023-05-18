@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import google from "../../assets/google.svg";
+import { AuthContext } from "@/context/AuthContext";
+import google from "@/assets/google.svg";
 const SignUpGoogle = () => {
   const { signUpGoogle } = useContext(AuthContext);
   const handleLog = () => {

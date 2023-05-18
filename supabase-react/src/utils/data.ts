@@ -1,32 +1,25 @@
-export const Data = [
-  {
-    id: 1,
-    year: 2016,
-    userGain: 80000,
-    userLost: 823
-  },
-  {
-    id: 2,
-    year: 2017,
-    userGain: 45677,
-    userLost: 345
-  },
-  {
-    id: 3,
-    year: 2018,
-    userGain: 78888,
-    userLost: 555
-  },
-  {
-    id: 4,
-    year: 2019,
-    userGain: 90000,
-    userLost: 4555
-  },
-  {
-    id: 5,
-    year: 2020,
-    userGain: 4300,
-    userLost: 234
-  }
+export const dataset1labels = ["Negative", "Positive"];
+export const dataset2Labels = ["Label 1", "Label 2", "Label 3"];
+export const dataset2data = ["Label 1", "Label 2", "Label 3"];
+
+export const backgroundDataSetTest = [
+  "rgba(255, 99, 132, 0.2)",
+  "rgba(54, 162, 235, 0.2)",
+  "rgba(255, 206, 86, 0.2)",
+  "rgba(75, 192, 192, 0.2)",
+  "rgba(153, 102, 255, 0.2)",
+];
+export const backgroundDataSet1 = [
+  "rgba(255, 99, 132, 1)",
+  "rgba(54, 162, 235, 1)",
+];
+export const backgroundDataSet2 = [
+  "rgba(255, 99, 132, 0.8)",
+  "rgba(255, 206, 86, 0.8)",
+];
+export const backgroundDataSet3 = [
+  "rgba(255, 206, 86, 0.2)",
+  "rgba(75, 192, 192, 0.2)",
+  "rgba(153, 102, 255, 0.2)",
+  "rgba(255, 159, 64, 0.2)",
 ];

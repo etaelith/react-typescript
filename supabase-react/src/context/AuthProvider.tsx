@@ -1,9 +1,9 @@
 import { AuthContext } from "./AuthContext";
-import { AuthUser, Login, LoginDate, props } from "../interfaces/interfaces";
+import { AuthUser, Login, LoginDate, props } from "@/interfaces/interfaces";
 import { useEffect, useState } from "react";
-import { client } from "../supabase/client";
+import { client } from "@/supabase/client";
 import { useLocation, useNavigate } from "react-router-dom";
-import useToast from "../hooks/useToast";
+import useToast from "@/hooks/useToast";
 
 const INITIAL_STATE: AuthUser = {
   user: null,

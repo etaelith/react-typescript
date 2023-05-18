@@ -1,5 +1,5 @@
 import { Doughnut } from "react-chartjs-2";
-import { PieChartProps } from "../../interfaces/interfaces";
+import { PieChartProps } from "@/interfaces/interfaces";
 
 function PieChart({ chartData }: PieChartProps) {
   return (

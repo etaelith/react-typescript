@@ -23,7 +23,9 @@ To get a local copy up and running, follow these steps:
 
 This project uses the following database tables:
 
-- **bill:** table stores information about bills or invoices. Here is a description of the table columns:
+# bill:
+
+table stores information about bills or invoices. Here is a description of the table columns:
 
 - `id`: A unique identifier for each bill. It is an auto-incrementing integer.
 - `created_at`: The timestamp when the bill was created. It has a default value of the current timestamp.
@@ -52,12 +54,18 @@ update on bill for each row
 execute function update_user_money ();
 ```
 
+| id     | created_at                   | name        | paid_up   | user_id                              | amount    |
+| ------ | ---------------------------- | ----------- | --------- | ------------------------------------ | --------- |
+| `int8` | `now()`                      | `text`      | `boolean` | `uuid()`                             | `numeric` |
+| 125    | 2023-05-17 21:07:30.96618+00 | electricity | false     | 9311e255-4a5b-4222-b0b4-36547a2b0bf9 | 2500.75   |
+
 The table also has a primary key constraint on the `id` column.
 
 Additionally, there is a trigger named `trigger_update_user_money` associated with the `bill` table. The trigger is fired after any `insert`, `delete`, or `update` operation on the `bill` table. It executes a function named `update_user_money()`.
 
-- **user_money:**
-  The `user_money` table stores information about the money balance for each user. Here is a description of the table columns:
+# user_money:
+
+The `user_money` table stores information about the money balance for each user. Here is a description of the table columns:
 
 - `id`: A unique identifier for each record in the table. It is an auto-incrementing integer.
 - `created_at`: The timestamp when the record was created. It has a default value of the current timestamp.
@@ -80,7 +88,12 @@ create table
   ) tablespace pg_default;
 ```
 
-# Please note that this description is based on the provided table structure, and you may have additional columns or constraints in your actual implementation. Feel free to customize the description to fit your specific use case.
+| id     | created_at                   | total     | pay_out   | user_id                              |
+| ------ | ---------------------------- | --------- | --------- | ------------------------------------ |
+| `int8` | `now()`                      | `numeric` | `numeric` | `uuid()`                             |
+| 2      | 2023-05-17 21:07:30.96618+00 | 25.50     | 0         | 9311e255-4a5b-4222-b0b4-36547a2b0bf9 |
+
+###### Please note that this description is based on the provided table structure, and you may have additional columns or constraints in your actual implementation. Feel free to customize the description to fit your specific use case.
 
 ## License
 

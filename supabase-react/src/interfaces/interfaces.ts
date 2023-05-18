@@ -1,4 +1,5 @@
 import { Session, User } from "@supabase/supabase-js";
+import type { ChartData } from "chart.js";
 export interface Login {
   email: string;
 }
@@ -41,4 +42,7 @@ export interface props {
 }
 export interface AuthContainerProps {
   children: React.ReactNode;
+}
+export interface PieChartProps {
+  chartData: ChartData<"doughnut">;
 }

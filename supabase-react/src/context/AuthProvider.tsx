@@ -47,6 +47,7 @@ const AuthProvider = ({ children }: props) => {
   };
   const signOut = () => {
     client.auth.signOut();
+    navigate("/user/login");
     notify("Success logout", "info");
   };
 
